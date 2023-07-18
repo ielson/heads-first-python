@@ -16,12 +16,11 @@ except IOError:
     print('file not found')
 
 try:
-    man_file = open("man_data.txt", mode="w+")
-    other_file = open("other_data.txt", mode="w+")
-    print(man, file=man_file)
-    print(other, file=other_file)
-    man_file.close()
-    other_file.close()
+    # with open(X) as Y, open(W) as Z:
+    with open("man_data.txt", mode="w+") as man_file:
+        print(man, file=man_file)
+    with open("other_data.txt", mode="w+") as other_file:
+        print(other, file=other_file)
 
-except IOError:
-    print("error opening file")
+except IOError as err:
+    print("File error: " + err)
