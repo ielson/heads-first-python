@@ -1,3 +1,5 @@
+import nester
+
 man = []
 other = []
 try:
@@ -18,9 +20,9 @@ except IOError:
 try:
     # with open(X) as Y, open(W) as Z:
     with open("man_data.txt", mode="w+") as man_file:
-        print(man, file=man_file)
+        nester.print_lol(man, print_on=man_file)
     with open("other_data.txt", mode="w+") as other_file:
-        print(other, file=other_file)
+        nester.print_lol(other, print_on=other_file)
 
 except IOError as err:
     print("File error: " + err)
