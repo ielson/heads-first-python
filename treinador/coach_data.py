@@ -1,19 +1,26 @@
-import pathlib
-
-current_directory = pathlib.Path(__file__)
-
-
-def get_txt_files(folder=current_directory):
-    parent_directory = folder.parent
-    print("current: " + str(parent_directory)) 
-    txt_list = list(pathlib.Path(parent_directory).glob('*.txt'))
-    print("files: " + str(txt_list))
-    return txt_list
+def sanitize(time_string):
+    if '-' in time_string:
+        splitter = '-'
+    elif ':' in time_string:
+        splitter = ':'
+    else:
+        return time_string
+    (mins, secs) = time_string.split(splitter)
+    return (mins + '.' + secs)
 
 
-for file in get_txt_files():
-    with open(file) as athlete_file:
-        athlete_data = athlete_file.readline()
-    athlete_data = athlete_data.strip().split(',')
-    athlete_name = file.name.split('.')[0]
-    exec(f"{athlete_name} = athlete_data")
+with open('james.txt') as jaf: data = jaf.readline()
+james = data.strip().split(',')
+with open('julie.txt') as juf: data = juf.readline()
+julie = data.strip().split(',')
+with open('mikey.txt') as mif: data = mif.readline()
+mikey = data.strip().split(',')
+with open('sarah.txt') as saf: data = saf.readline()
+sarah = data.strip().split(',')
+
+clean_james = sorted([sanitize(each_t) for each_t in james])
+clean_mikey = sorted([sanitize(each_t) for each_t in mikey])
+clean_julie = sorted([sanitize(each_t) for each_t in julie])
+clean_sarah = sorted([sanitize(each_t) for each_t in sarah])
+
+print(clean_james)
