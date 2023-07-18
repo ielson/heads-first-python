@@ -14,6 +14,6 @@ def get_txt_files(folder=current_directory):
 for file in get_txt_files():
     with open(file) as athlete_file:
         athlete_data = athlete_file.readline()
-        athlete_file = athlete_data.strip()
-        print(athlete_data)
-
+    athlete_data = athlete_data.strip().split(',')
+    athlete_name = file.name.split('.')[0]
+    exec(f"{athlete_name} = athlete_data")
