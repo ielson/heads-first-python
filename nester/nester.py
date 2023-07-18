@@ -22,5 +22,6 @@ def print_lol(the_list, indent=False, level=0, print_on=sys.stdout):
 
 if __name__ == "__main__":
     movies = ['The Holy Grail', 1975, 'Terry Johnes & Terry Gilliam', 91,
-                ['Graham Chapman', ['John Cleese', 'Terry Gilliam', 'Eric Idle', 'Terry Jones']]]
+              ['Graham Chapman', ['John Cleese', 'Terry Gilliam', 'Eric Idle',
+               'Terry Jones']]]
     print_lol(movies, indent=True)

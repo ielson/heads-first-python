@@ -1,4 +1,3 @@
-import nester
 import pickle
 
 man = []
