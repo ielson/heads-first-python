@@ -1,4 +1,5 @@
 import nester
+import pickle
 
 man = []
 other = []
@@ -19,10 +20,10 @@ except IOError:
 
 try:
     # with open(X) as Y, open(W) as Z:
-    with open("man_data.txt", mode="w+") as man_file:
-        nester.print_lol(man, print_on=man_file)
-    with open("other_data.txt", mode="w+") as other_file:
-        nester.print_lol(other, print_on=other_file)
+    with open("man_data.txt", mode="wb") as man_file:
+        pickle.dump(man, man_file)
+    with open("other_data.txt", mode="wb") as other_file:
+        pickle.dump(other, other_file)
 
-except IOError as err:
+except pickle.PickleError as err:
     print("File error: " + err)
