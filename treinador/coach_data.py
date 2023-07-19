@@ -23,26 +23,7 @@ mikey = sorted([sanitize(each_t) for each_t in mikey])
 julie = sorted([sanitize(each_t) for each_t in julie])
 sarah = sorted([sanitize(each_t) for each_t in sarah])
 
-unique_james = []
-for time in james:
-    if not time in unique_james:
-        unique_james.append(time)
-print(unique_james)
-
-unique_james = []
-for time in james:
-    if not time in unique_james:
-        unique_james.append(time)
-print(unique_james)
-
-unique_james = []
-for time in james:
-    if not time in unique_james:
-        unique_james.append(time)
-print(unique_james)
-
-unique_sarah = []
-for time in sarah:
-    if not time in unique_sarah:
-        unique_sarah.append(time)
-print(unique_sarah)
+print(sorted(set(james))[:3])
+print(sorted(set(julie))[:3])
+print(sorted(set(mikey))[:3])
+print(sorted(set(james))[:3])
