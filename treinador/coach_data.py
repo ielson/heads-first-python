@@ -9,14 +9,20 @@ def sanitize(time_string):
     return (mins + '.' + secs)
 
 
-with open('james.txt') as jaf: data = jaf.readline()
-james = data.strip().split(',')
-with open('julie.txt') as juf: data = juf.readline()
-julie = data.strip().split(',')
-with open('mikey.txt') as mif: data = mif.readline()
-mikey = data.strip().split(',')
-with open('sarah.txt') as saf: data = saf.readline()
-sarah = data.strip().split(',')
+def get_data_from_file(file):
+    try:
+        with open(file) as f:
+            data = f.readline()
+        return (data.strip().split(','))
+    except IOError as err:
+        print("File Error: " + err)
+        return None
+
+
+james = get_data_from_file('james.txt')
+mikey = get_data_from_file('mikey.txt')
+sarah = get_data_from_file('sarah.txt')
+julie = get_data_from_file('julie.txt')
 
 james = sorted([sanitize(each_t) for each_t in james])
 mikey = sorted([sanitize(each_t) for each_t in mikey])
