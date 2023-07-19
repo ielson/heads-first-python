@@ -18,9 +18,31 @@ mikey = data.strip().split(',')
 with open('sarah.txt') as saf: data = saf.readline()
 sarah = data.strip().split(',')
 
-clean_james = sorted([sanitize(each_t) for each_t in james])
-clean_mikey = sorted([sanitize(each_t) for each_t in mikey])
-clean_julie = sorted([sanitize(each_t) for each_t in julie])
-clean_sarah = sorted([sanitize(each_t) for each_t in sarah])
+james = sorted([sanitize(each_t) for each_t in james])
+mikey = sorted([sanitize(each_t) for each_t in mikey])
+julie = sorted([sanitize(each_t) for each_t in julie])
+sarah = sorted([sanitize(each_t) for each_t in sarah])
 
-print(clean_james)
+unique_james = []
+for time in james:
+    if not time in unique_james:
+        unique_james.append(time)
+print(unique_james)
+
+unique_james = []
+for time in james:
+    if not time in unique_james:
+        unique_james.append(time)
+print(unique_james)
+
+unique_james = []
+for time in james:
+    if not time in unique_james:
+        unique_james.append(time)
+print(unique_james)
+
+unique_sarah = []
+for time in sarah:
+    if not time in unique_sarah:
+        unique_sarah.append(time)
+print(unique_sarah)
