@@ -19,17 +19,14 @@ def get_data_from_file(file):
         return None
 
 
-james = get_data_from_file('james.txt')
-mikey = get_data_from_file('mikey.txt')
-sarah = get_data_from_file('sarah.txt')
-julie = get_data_from_file('julie.txt')
+james = get_data_from_file('james2.txt')
+mikey = get_data_from_file('mikey2.txt')
+sarah = get_data_from_file('sarah2.txt')
+julie = get_data_from_file('julie2.txt')
 
-james = sorted([sanitize(each_t) for each_t in james])
-mikey = sorted([sanitize(each_t) for each_t in mikey])
-julie = sorted([sanitize(each_t) for each_t in julie])
-sarah = sorted([sanitize(each_t) for each_t in sarah])
+sarah_data = {}
+sarah_data['name'] = sarah.pop(0)
+sarah_data['dob'] = sarah.pop(0)
+sarah_data['times'] = sarah
 
-print(sorted(set(james))[:3])
-print(sorted(set(julie))[:3])
-print(sorted(set(mikey))[:3])
-print(sorted(set(james))[:3])
+print(sarah_data['name']+ "'s fastest times are: " + str(sorted(set([sanitize(t) for t in sarah_data['times']]))[:3]))
