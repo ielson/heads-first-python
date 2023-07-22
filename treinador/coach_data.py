@@ -1,3 +1,5 @@
+import pickle
+
 class AthleteList(list):
     def __init__(self, name, dob=None, times=[]) -> None:
         list.__init__([])
@@ -31,11 +33,24 @@ def get_data_from_file(file):
         return None
 
 
-james = get_data_from_file('james2.txt')
-mikey = get_data_from_file('mikey2.txt')
-sarah = get_data_from_file('sarah2.txt')
-julie = get_data_from_file('julie2.txt')
+def put_to_store(files_list):
+    all_ath = {}
+    for each_file in files_list:
+        ath = get_data_from_file(each_file)
+        all_ath[ath.name] = ath
+    try:
+        with open('athletes.pickle', 'wb') as ath_pickle:
+            pickle.dump(all_ath, ath_pickle)
+    except IOError as err:
+        print('File error: ' + err)
+    return (all_ath)
 
-print(sarah.name + "'s fastest times are: " + str(sarah.top3()))
-print(mikey.name + "'s fastest times are: " + str(mikey.top3()))
-print(james.name + "'s fastest times are: " + str(james.top3()))
+
+def get_from_store():
+    all_ath = {}
+    try:
+        with open('athletes.pickle', 'rb') as ath_file:
+            all_ath = pickle.load(ath_file)
+    except IOError as err:
+        print('File error: ' + err)
+    return all_ath
